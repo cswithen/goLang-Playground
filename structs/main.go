@@ -48,13 +48,21 @@ func main() {
 		},
 	}
 
-	jimPointer := &jim
+	// the & is an operator and a variable name together; (look at this variable and give us access to the memory address for this variable)
+	// jimPointer := &jim
 
-	jimPointer.updateName("jimmy")
+	// we call the update on the pointer which will update the actual value
+	// jimPointer.updateName("jimmy")
+
+	// this shorthand will work if we define the reciever to use a pointer Go will allow us to call it on the struct 'person'
+	jim.updateName("tex")
 	jim.print()
 }
 
+// the * value gives us the value that is currently at the memory address provided
+// receiver type is *person which means a pointer that points at a person (type description which is saying only a pointer that points to a person)
 func (pointerToPerson *person) updateName(newFirstName string) {
+	// the *pointerToPerson is an operator it means we want to maniuplate the value that the pointer is referencing
 	(*pointerToPerson).firstName = newFirstName
 }
 
@@ -63,3 +71,6 @@ func (p person) print() {
 	fmt.Printf("%+v", p)
 
 }
+
+// Value Types (Use Pointers to Change) : INT , FLOAT , STRING , BOOL , STRUCTS
+// Reference Types (Dont use Pointers to Change) : SLICES, MAPS, CHANNELS, POINTERS, FUNCTIONS
