@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// interface that will allow us to reuse logic for
+// interface that will allow us to reuse logic for acts kindof like js prototypes
 type bot interface {
 	getGreeting() string
 }
