@@ -1,3 +1,5 @@
+// concurency is not parallelism
+// channels are the only way different go routines can communicate to eachother
 package main
 
 import (
@@ -16,7 +18,8 @@ func main() {
 	}
 
 	for _, link := range links {
-		checkLink(link)
+		// the 'go' keyword sets up a new go routine which allows for the go scheduler to manage what code is running at what time.
+		go checkLink(link)
 	}
 }
 
